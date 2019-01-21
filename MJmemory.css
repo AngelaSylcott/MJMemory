@@ -1,0 +1,59 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	height: 100vh;
+}
+
+/*The game's background*/
+.table {
+	display: flex;
+	flex-wrap: wrap;
+	height: 700px;
+	width: 700px;
+	margin: auto;
+	background-color: #aa0303;
+	perspective: 1000px;
+}
+
+/*The game cards*/
+.card {
+	position: relative;
+	margin: 5px;
+	height: calc(33.333% - 10px);
+	width: calc(25% - 10px);
+	transform: scale(1);
+	transform-style: preserve-3d;
+	transition: transform .5s;
+}
+
+/*The cards' front and back*/
+.card-front, .card-back {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding: 20px;
+	border-radius: 5px;
+	background: black;
+	backface-visibility: hidden;
+}
+
+/*Card face*/
+.card-front {
+	transform: rotateY(180deg);
+}
+
+/*Clicked card*/
+.card:active {
+	transform: scale(0.95);
+	transition: transform .2s;
+}
+
+/*Flip card*/
+.card.flip {
+	transform: rotateY(180deg);
+}
